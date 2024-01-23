@@ -41,6 +41,7 @@ class Embed
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer $this->Token"
             ])
+            ->setFormat(Client::FORMAT_JSON)
             ->setMethod('POST')
             ->setUrl($this->Url . "InitiatePayment")
             ->setData(["InvoiceAmount" => $amount,  "CurrencyIso" => $currencyIso])
