@@ -3,6 +3,8 @@
 namespace nasarbashag\myfatoorah\services;
 
 use Yii;
+use yii\httpclient\Client;
+use yii\httpclient\Request;
 
 class Embed
 {
@@ -23,6 +25,23 @@ class Embed
         $this->SuccessUrl =  Yii::$app->params['nbMyFatoorah']['SuccessUrl'];
         $this->ErrorUrl =  Yii::$app->params['nbMyFatoorah']['ErrorUrl'];
         $this->Currency =  Yii::$app->params['nbMyFatoorah']['Currency'];
+    }
+
+
+    public function initiatePayment($amount = 0.00, $currencyIso = "kwd")
+    {
+
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Authorization' => "Bearer $this->Token"
+        ];
+        $body = json_encode([
+            "InvoiceAmount" => $amount,  "CurrencyIso" => $currencyIso
+        ]);
+        $request = new Request('POST', '$this->Url/InitiatePayment', $headers, $body);
+        $res = $client->sendAsync($request)->wait();
+        echo $res->getBody();
     }
 
     public function executePayment()
