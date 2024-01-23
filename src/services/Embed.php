@@ -28,7 +28,7 @@ class Embed
     }
 
 
-    public function initiatePayment($amount = 0.00, $currencyIso = "kwd")
+    public function initiatePayment($amount = 0.00, $currencyIso = "KWD")
     {
 
 
@@ -54,12 +54,27 @@ class Embed
 
     public function executePayment()
     {
-        dd(
-            $this->Token,
-            $this->Url,
-            $this->SuccessUrl,
-            $this->ErrorUrl,
-            $this->Currency,
-        );
+
+
+        $client = new Client();
+
+        $response = $client->createRequest()
+            ->setHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => "Bearer $this->Token"
+            ])
+            ->setFormat(Client::FORMAT_JSON)
+            ->setMethod('POST')
+            ->setUrl($this->Url . "ExecutePayment")
+            ->setData([
+                "PaymentMethodId" => 1,
+                "invoiceValue" => 100,
+                "UserDefinedField" => "CK-123",
+                "ProcessingDetails" => [
+                    "Bypass3DS" => false
+                ]
+            ])
+            ->send();
+        return ($response->content);
     }
 }
