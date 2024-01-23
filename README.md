@@ -11,3 +11,18 @@ You can install this package using [Composer](https://getcomposer.org/):
 ```bash
 composer require nasarbashag/yii2-nasarbashag-myfatoorah
 ```
+
+
+## Add default values in params.php
+
+```bash
+....
+ "nbMyFatoorah" => [
+        'Token' => "Occaecat non adipisicing velit officia reprehenderit non non ea velit ad minim.",
+        'Url' => "Occaecat non adipisicing velit officia reprehenderit non non ea velit ad minim.",
+        'SuccessUrl' => "Occaecat non adipisicing velit officia reprehenderit non non ea velit ad minim.",
+        'ErrorUrl' => "Occaecat non adipisicing velit officia reprehenderit non non ea velit ad minim.",
+        'Currency' => "Occaecat non adipisicing velit officia reprehenderit non non ea velit ad minim.",
+    ],
+...
+```
