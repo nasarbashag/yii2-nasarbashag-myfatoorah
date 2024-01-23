@@ -2,6 +2,8 @@
 
 namespace nasarbashag\myfatoorah\services;
 
+use Yii;
+
 class Embed
 {
     /**
@@ -9,4 +11,10 @@ class Embed
      */
     const MF_URL = "";
     const MF_TOKEN = "";
+
+
+    public function executePayment()
+    {
+        return Yii::$app->params['myfatoorah_token'] ?? "Token Not found";
+    }
 }
