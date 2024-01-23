@@ -31,17 +31,24 @@ class Embed
     public function initiatePayment($amount = 0.00, $currencyIso = "kwd")
     {
 
+
+
+
+
         $client = new Client();
-        $headers = [
-            'Content-Type' => 'application/json',
-            'Authorization' => "Bearer $this->Token"
-        ];
-        $body = json_encode([
-            "InvoiceAmount" => $amount,  "CurrencyIso" => $currencyIso
-        ]);
-        $request = new Request('POST', '$this->Url/InitiatePayment', $headers, $body);
-        $res = $client->sendAsync($request)->wait();
-        echo $res->getBody();
+        $response = $client->createRequest()
+            ->setHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => "Bearer $this->Token"
+            ])
+            ->setMethod('POST')
+            ->setUrl($this->Url . "InitiatePayment")
+            ->setData(["InvoiceAmount" => $amount,  "CurrencyIso" => $currencyIso])
+            ->send();
+        // if ($response->isOk) {
+        return ($response);
+        // }
+
     }
 
     public function executePayment()
