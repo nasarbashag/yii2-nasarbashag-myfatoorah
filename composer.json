@@ -16,26 +16,42 @@
             "email": "nasarbashag1995@gmail.com"
         }
     ],
+    "minimum-stability": "stable",
     "require": {
-        "php": "^7.4 || ^8.0",
-        "yiisoft/yii2": "~2.0.0",
-        "yiisoft/yii2-bootstrap4": "~2.0.8",
-        "yiisoft/yii2-httpclient": "*"
+        "php": ">=7.4.0",
+        "yiisoft/yii2": "2.0.45",
+        "yiisoft/yii2-bootstrap4": "*",
+        "yiisoft/yii2-httpclient": "*",
+        "composer-plugin-api": "*"
     },
     "autoload": {
         "psr-4": {
-            "nasarbashag\\myfatoorah\\": "src"
+            "nasarbashag\\myfatoorah\\": ""
         }
     },
     "config": {
         "allow-plugins": {
             "yiisoft/yii2-composer": true
+        },
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
         }
     },
     "repositories": [
         {
             "type": "git",
             "url": "https://github.com/nasarbashag/yii2-nasarbashag-myfatoorah"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     ]
 }
