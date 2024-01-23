@@ -1,6 +1,6 @@
-assets/*
-!assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
+# phpstorm project files
+.idea
+
+# composer
+/vendor
+/composer.lock
