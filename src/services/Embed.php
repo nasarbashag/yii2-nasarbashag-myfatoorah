@@ -9,30 +9,30 @@ class Embed
     /**
      * Collect all the value from params files from your project
      */
-    public $myFatoorahToken;
-    public $myFatoorahUrl;
-    public $myFatoorahSuccessUrl;
-    public $myFatoorahErrorUrl;
-    public $myFatoorahCurrency;
+    public $Token;
+    public $Url;
+    public $SuccessUrl;
+    public $ErrorUrl;
+    public $Currency;
 
 
     public function __construct()
     {
-        $this->myFatoorahToken =  Yii::$app->params['myfatoorahToken'];
-        $this->myFatoorahUrl =  Yii::$app->params['myfatoorahUrl'];
-        $this->myFatoorahSuccessUrl =  Yii::$app->params['myfatoorahSuccessUrl'];
-        $this->myFatoorahErrorUrl =  Yii::$app->params['myfatoorahErrorUrl'];
-        $this->myFatoorahCurrency =  Yii::$app->params['myfatoorahCurrency'];
+        $this->Token =  Yii::$app->params['nbMyFatoorah']['Token'];
+        $this->Url =  Yii::$app->params['nbMyFatoorah']['Url'];
+        $this->SuccessUrl =  Yii::$app->params['nbMyFatoorah']['SuccessUrl'];
+        $this->ErrorUrl =  Yii::$app->params['nbMyFatoorah']['ErrorUrl'];
+        $this->Currency =  Yii::$app->params['nbMyFatoorah']['Currency'];
     }
 
     public function executePayment()
     {
         dd(
-            $this->myFatoorahToken,
-            $this->myFatoorahUrl,
-            $this->myFatoorahSuccessUrl,
-            $this->myFatoorahErrorUrl,
-            $this->myFatoorahCurrency,
+            $this->Token,
+            $this->Url,
+            $this->SuccessUrl,
+            $this->ErrorUrl,
+            $this->Currency,
         );
     }
 }
