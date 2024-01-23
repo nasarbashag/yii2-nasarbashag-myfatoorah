@@ -12,10 +12,9 @@ You can install this package using [Composer](https://getcomposer.org/):
 composer require nasarbashag/yii2-nasarbashag-myfatoorah
 ```
 
-
 ## Add default values in params.php
 
-```bash
+```php
 ....
  "nbMyFatoorah" => [
         'Token' => "Occaecat non adipisicing velit officia reprehenderit non non ea velit ad minim.",
@@ -25,4 +24,12 @@ composer require nasarbashag/yii2-nasarbashag-myfatoorah
         'Currency' => "Occaecat non adipisicing velit officia reprehenderit non non ea velit ad minim.",
     ],
 ...
+```
+
+## Initiate payment
+
+```php
+$initPayment = new Embed();
+$result = $initPayment->initiatePayment(amount: 100.00, currentcyIso : "KWD");
+// this result will all the payment methods
 ```

@@ -54,10 +54,7 @@ class Embed
 
     public function executePayment()
     {
-
-
         $client = new Client();
-
         $response = $client->createRequest()
             ->setHeaders([
                 'Content-Type' => 'application/json',
