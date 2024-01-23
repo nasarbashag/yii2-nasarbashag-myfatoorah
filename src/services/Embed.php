@@ -47,7 +47,7 @@ class Embed
             ->setData(["InvoiceAmount" => $amount,  "CurrencyIso" => $currencyIso])
             ->send();
         // if ($response->isOk) {
-        return ($response);
+        return ($response->content);
         // }
 
     }
