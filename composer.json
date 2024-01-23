@@ -17,5 +17,11 @@
         "psr-4": {
             "nasarbashag\\myfatoorah\\": ""
         }
-    }
+    },
+    "repositories":[
+        {
+            "type": "git",
+            "url": "https://github.com/nasarbashag/yii2-nasarbashag-myfatoorah"
+        }
+    ]
 }
