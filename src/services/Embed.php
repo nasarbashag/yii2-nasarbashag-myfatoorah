@@ -52,6 +52,11 @@ class Embed
 
     }
 
+    /**
+     * Execute payment ~ this will process the data and generate a payment link
+     *
+     * @return void
+     */
     public function executePayment()
     {
         $client = new Client();
@@ -64,11 +69,64 @@ class Embed
             ->setMethod('POST')
             ->setUrl($this->Url . "ExecutePayment")
             ->setData([
-                "PaymentMethodId" => 1,
-                "invoiceValue" => 100,
-                "UserDefinedField" => "CK-123",
+                "PaymentMethodId" => 0,
+                "SessionId" => "string",
+                "RecurringModel" => [
+                    "RecurringType" => "string",
+                    "IntervalDays" => 0,
+                    "Iteration" => 0,
+                    "RetryCount" => 0
+                ],
+                "CustomerName" => "string",
+                "DisplayCurrencyIso" => "string",
+                "MobileCountryCode" => "string",
+                "CustomerMobile" => "string",
+                "CustomerEmail" => "string",
+                "InvoiceValue" => 0,
+                "Language" => "string",
+                "CustomerReference" => "string",
+                "CustomerCivilId" => "string",
+                "UserDefinedField" => "string",
+                "CallBackUrl" => "string",
+                "ErrorUrl" => "string",
+                "CustomerAddress" => [
+                    "Block" => "string",
+                    "Street" => "string",
+                    "HouseBuildingNo" => "string",
+                    "AddressInstructions" => "string"
+                ],
+                "ExpiryDate" => "2023-11-16T10=>58=>49.852Z",
+                "InvoiceItems" => [
+                    [
+                        "ItemName" => "string",
+                        "Quantity" => 0,
+                        "UnitPrice" => 0,
+                        "Weight" => 0,
+                        "Width" => 0,
+                        "Height" => 0,
+                        "Depth" => 0
+                    ]
+                ],
+                "ShippingMethod" => 1,
+                "ShippingConsignee" => [
+                    "PersonName" => "string",
+                    "Mobile" => "string",
+                    "EmailAddress" => "string",
+                    "LineAddress" => "string",
+                    "CityName" => "string",
+                    "PostalCode" => "string",
+                    "CountryCode" => "string"
+                ],
+                "Suppliers" => [
+                    [
+                        "SupplierCode" => 0,
+                        "ProposedShare" => 0,
+                        "InvoiceShare" => 0
+                    ]
+                ],
                 "ProcessingDetails" => [
-                    "Bypass3DS" => false
+                    "AutoCapture" => true,
+                    "Bypass3DS" => true
                 ]
             ])
             ->send();
